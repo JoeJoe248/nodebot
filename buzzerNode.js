@@ -35,7 +35,7 @@ app.use(passport.initialize());
 //passport config passport has a strategy
 //require("./config/passport")(passport);
 
-// Load Equipment model
+// Load Buzzer model
 const Buzzer = require("./models/Buzzer");
 
 //Use these Routes
@@ -59,7 +59,7 @@ app.use("/api/buzzer", buzzer);
   });
 }*/
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 6000;
 
 app.listen(port, () => console.log("server running on port " + port));
 
