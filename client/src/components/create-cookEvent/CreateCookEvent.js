@@ -55,7 +55,7 @@ class CreateCookEvent extends Component {
 
     const cookEventData = {
       recipeId: this.props.match.params.recipeId,
-      recipeName: this.state.recipeName,
+      recipeName: this.props.recipe.recipeName,
       meatType: this.state.meatType,
       meatWeight: this.state.meatWeight,
       totalCookTime: this.state.totalCookTime,
@@ -64,6 +64,8 @@ class CreateCookEvent extends Component {
       cookState: this.state.cookState,
       activeInd: this.state.activeInd
     };
+
+    console.log("cookEventData: ", cookEventData);
 
     this.props.createCookEvent(cookEventData, this.props.history); //this.props.history requires withRouter
 
@@ -75,7 +77,8 @@ class CreateCookEvent extends Component {
       cookRating: "",
       ovenTemp: "",
       cookState: "",
-      activeInd: true
+      activeInd: true,
+      archiveInd: true
     });
   }
 
@@ -101,12 +104,11 @@ class CreateCookEvent extends Component {
               <p className="lead text-center">Some subtext</p>
               <small className="d-blok pb-3">* = required fields</small>
               <form noValidate onSubmit={this.onSubmit}>
-                {this.props.match.params.recipeId}
-                {this.props.recipe ? this.props.recipe.recipeName : ""}
                 <TextFieldGroup
                   placeholder="* Recipe Name"
                   name="recipeName"
                   value={this.props.recipe ? this.props.recipe.recipeName : ""}
+                  onChange={this.onChange}
                   error={errors.recipeName}
                 />
                 <TextFieldGroup
@@ -138,7 +140,7 @@ class CreateCookEvent extends Component {
                   error={errors.cookRating}
                 />
                 <TextFieldGroup
-                  placeholder="Oven Temperaturer"
+                  placeholder="Oven Temperature"
                   name="ovenTemp"
                   value={this.state.ovenTemp}
                   onChange={this.onChange}

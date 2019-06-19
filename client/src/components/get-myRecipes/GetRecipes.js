@@ -24,7 +24,16 @@ class GetRecipes extends Component {
           <GetRecipesItem key={recipe._id} recipe={recipe} />
         ));
       } else {
-        recipeItems = <h4>No recipes found...</h4>;
+        recipeItems = (
+          <div>
+            <h4>No recipes found...</h4>
+
+            <h4>
+              <Link to="/create-recipe">Add a recipe</Link>, then create a cook
+              event from your list to get started!
+            </h4>
+          </div>
+        );
       }
     }
 

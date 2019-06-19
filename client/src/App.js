@@ -14,14 +14,16 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
+import CookEventHistory from "./components/get-myCookEvents/CookEventHistory";
 import EditProfile from "./components/edit-profile/EditProfile";
 import CreateRecipe from "./components/create-recipe/CreateRecipe";
 import CreateCookEvent from "./components/create-cookEvent/CreateCookEvent";
 import GetRecipes from "./components/get-myRecipes/GetRecipes";
 import Profiles from "./components/profiles/Profiles";
-import GetCookEvents from "./components/get-myCookEvents/GetCookEvents";
+//import CookEventsGrid from "./components/get-myCookEvents/CookEventsGrid";
 import CookEventAnalytics from "./components/get-myCookEvents/CookEventAnalytics";
-import Chart from "./components/get-myCookEvents/Chart";
+import CookEventChart from "./components/charts/CookEventChart";
+import CookEventsScreen from "./components/get-myCookEvents/CookEventsScreen";
 
 import "./App.css"; //where we put our global css
 import { setCurrentUser, logoutUser } from "./actions/authActions";
@@ -78,16 +80,21 @@ class App extends Component {
                 />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/recipes" component={GetRecipes} />
+                <PrivateRoute exact path="/myrecipes" component={GetRecipes} />
               </Switch>
-              <Switch>
-                <PrivateRoute exact path="/cookLog" component={GetCookEvents} />
-              </Switch>
+
               <Switch>
                 <PrivateRoute
                   exact
                   path="/create-recipe"
                   component={CreateRecipe}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/cookHistory"
+                  component={CookEventHistory}
                 />
               </Switch>
               <Switch>
@@ -101,12 +108,23 @@ class App extends Component {
               <Switch>
                 <PrivateRoute
                   exact
-                  path="/analytics-cookEvnt"
+                  path="/analytics-cookEvent"
                   component={CookEventAnalytics}
                 />
               </Switch>
               <Switch>
-                <PrivateRoute exact path="/analytics-chart" component={Chart} />
+                <PrivateRoute
+                  exact
+                  path="/analytics-chart"
+                  component={CookEventChart}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/staging"
+                  component={CookEventsScreen}
+                />
               </Switch>
             </div>
             <Footer />

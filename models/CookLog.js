@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const CookLogSchema = new Schema({
+  user: {
+    type: String,
+    required: false
+  },
   analogReading: {
     type: Number,
     required: true

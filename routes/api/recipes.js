@@ -87,6 +87,9 @@ router.get(
     );
 });*/
 
+// @ route  GET api/recipe/:id
+// @desc    get current user's recipes by recipeId
+// @access  private
 router.get(
   "/myRecipe/:id",
   passport.authenticate("jwt", { session: false }),

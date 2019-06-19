@@ -11,9 +11,9 @@ module.exports = function validateCookEventInput(data) {
     errors.recipeName = "Recipe Name needs to between 2 and 200 characters";
   }
 
-  if (Validator.isEmpty(data.recipeName)) {
+  /*if (Validator.isEmpty(data.recipeName)) {
     errors.recipeName = "Recipe Name is required";
-  }
+  }*/
 
   return {
     errors,

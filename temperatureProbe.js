@@ -67,26 +67,18 @@ var five = require("johnny-five");
 var board = new five.Board();
 
 board.on("ready", function() {
-  var celcius = new five.Sensor("A0");
-  /*var temperature = new five.Sensor({
-    controller: "thermistor",
-    pin: "A0"
-  });*/
-  //var led = new five.Led(3);
-  //var value = 0;
+  var celcius = new five.Sensor({
+    pin: "A0",
+    freq: 5000
+  });
 
-  //set interval
-
-  //refactor this so that it produces a value and another fuction does the math and loads
-
-  celcius.on("change", function() {
+  celcius.on("data", function() {
     var temp_value = this.value;
     var thermistorNominal = 10000;
     var temperatureNominal = 25;
     var numSamples = 5;
     var bCoefficient = 3950;
     var seriesResistor = 10000;
-    var numSamples = 5;
     var totalSampleSum = 0;
     var averageSample = 0;
     console.log("Temperature analog value is: " + temp_value);
@@ -111,7 +103,8 @@ board.on("ready", function() {
     var steinhart1 = 0;
     var steinhart2 = steinhart1 + avgThermistorResistance2 / thermistorNominal; //is this right? need parens
     //var steinhart3 = Math.log(steinhart2);
-    var steinhart3 = Math.log10(steinhart2);
+    var steinhart3 = Math.log(steinhart2);
+    console.log("steinhart3: " + steinhart3);
     var steinhart4 = steinhart3 / bCoefficient;
     console.log("steinhart4: " + steinhart4);
     var steinhart5 = steinhart4 + 1.0 / (temperatureNominal + 273.15);
@@ -122,15 +115,17 @@ board.on("ready", function() {
 
     console.log("Average Temperature in Celcius: " + celciusTemp);
     console.log("Average Temperature in Fahrenheit: " + farhenheitTemp);
-    const newCookLogEvent = new CookLog({
+    /*const newCookLogEvent = new CookLog({
+      analogReading: temp_value,
       temperatureCelcius: celciusTemp,
       temperatureFahrenheit: farhenheitTemp,
       deviceId: board.id
     });
     newCookLogEvent.save();
-    console.log("just posted to Mongo");
+    console.log("just posted to Mongo");*/
 
     //console.log(this.celsius + "C", this.farhenheit + "F");
     //led.blink(value);
+    console.log(board.id);
   });
 });

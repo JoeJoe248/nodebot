@@ -19,14 +19,18 @@ const CookEventSchema = new Schema({
     type: Schema.Types.ObjectId, //associate the deviceId by ID
     ref: "profile"
   },*/
-  deviceId: {
-    type: String
-  },
+  deviceBoards: [
+    {
+      deviceId: {
+        type: String
+      }
+    }
+  ],
   meatType: {
     type: String
   },
   meatWeight: {
-    type: Number
+    type: String
   },
   totalCookTime: {
     type: String
@@ -46,6 +50,60 @@ const CookEventSchema = new Schema({
   activeInd: {
     type: Boolean
   },
+  cookNotes: {
+    type: String
+  },
+  purchasePlace: {
+    type: String
+  },
+  purchasePrice: {
+    type: String
+  },
+  meatProbeInd: {
+    type: Boolean,
+    default: false
+  },
+  archiveInd: {
+    type: Boolean,
+    default: false
+  },
+  archiveIndDate: {
+    type: Date,
+    default: null
+  },
+  cookLog: [
+    {
+      _id: {
+        type: Schema.Types.ObjectId,
+        ref: "cookLog",
+        required: true
+      },
+      user: {
+        type: String,
+        required: false
+      },
+      analogReading: {
+        type: Number,
+        required: true
+      },
+      temperatureCelcius: {
+        type: Number,
+        required: true
+      },
+      temperatureFahrenheit: {
+        type: Number,
+        required: false
+      },
+      deviceId: {
+        type: String,
+        required: true
+      },
+      cookDate: {
+        type: Date,
+        default: Date.now
+      }
+    }
+  ],
   dateAdded: {
     type: Date,
     default: Date.now
