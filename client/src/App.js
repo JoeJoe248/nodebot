@@ -15,6 +15,7 @@ import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import CookEventHistory from "./components/get-myCookEvents/CookEventHistory";
+import CookEventHistoryDetail from "./components/get-myCookEvents/CookEventHistoryDetail";
 import EditProfile from "./components/edit-profile/EditProfile";
 import CreateRecipe from "./components/create-recipe/CreateRecipe";
 import CreateCookEvent from "./components/create-cookEvent/CreateCookEvent";
@@ -95,6 +96,13 @@ class App extends Component {
                   exact
                   path="/cookHistory"
                   component={CookEventHistory}
+                />
+              </Switch>
+              <Switch>
+                <PrivateRoute
+                  exact
+                  path="/cookEventHistory/:cookEventId?"
+                  component={CookEventHistoryDetail}
                 />
               </Switch>
               <Switch>

@@ -59,7 +59,7 @@ class BarChartComponent extends Component {
       return (
         <tr>
           <td>
-            <Sparklines height={120} width={180} data={tempValues}>
+            <Sparklines height={120} width={180} data={tempValuesFake}>
               <SparklinesBars color="red" />
             </Sparklines>
           </td>

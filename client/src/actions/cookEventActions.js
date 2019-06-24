@@ -136,7 +136,7 @@ export const getMyCookEvent = cookEventId => dispatch => {
 };
 
 //get my non active cook event
-export const getMyCookEventHistory = cookEventId => dispatch => {
+export const getMyCookEventItemHistory = cookEventId => dispatch => {
   dispatch(setCookEventLoading());
   axios
     .get(`/api/cookEvents/myCookEventHistory/${cookEventId}`)

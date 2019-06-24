@@ -6,7 +6,7 @@ import { getCurrentProfile, deleteAccount } from "../../actions/profileActions";
 import { getMyCookEvents } from "../../actions/cookEventActions";
 import Spinner from "../common/Spinner";
 import ProfileActions from "./ProfileActions";
-import ProfileActions2 from "./ProfileActions2";
+//import ProfileActions2 from "./ProfileActions2";
 import CookEventsGrid from "../get-myCookEvents/CookEventsGrid";
 
 //import EditCookEvent from "../edit-cookEvent/EditCookEvent";
@@ -31,7 +31,7 @@ class Dashboard extends Component {
       cookEvent: cookEvent
     });
 
-    console.log("the cookEvent from props: ", cookEvent);
+    //console.log("the cookEvent from props: ", cookEvent);
 
     //test for errors property
     if (nextProps.errors) {
@@ -67,7 +67,6 @@ class Dashboard extends Component {
             Create Profile
           </Link>
           <ProfileActions />
-          <ProfileActions2 />
           <div style={{ marginBottom: "60px" }} />
           <button
             onClick={this.onDeleteClick.bind(this)}
@@ -92,7 +91,6 @@ class Dashboard extends Component {
               </Link>
             </p>
             <ProfileActions />
-            <ProfileActions2 />
           </div>
           <div style={{ marginBottom: "60px" }} />
           <button
@@ -109,7 +107,6 @@ class Dashboard extends Component {
         <div>
           <p className="lead text-muted">Welcome {user.name}</p>
           <ProfileActions />
-          <ProfileActions2 />
           <CookEventsGrid cookEvents={cookEvents} />
           <div style={{ marginBottom: "60px" }} />
           <button

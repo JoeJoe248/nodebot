@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-//import CreateCookEvent from "../create-cookEvent/CreateCookEvent";
 //import isEmpty from "../../validation/is-empty";
 
 class GetRecipesItem extends Component {

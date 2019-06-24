@@ -145,15 +145,12 @@ class CookEventChart extends Component {
 
     return (
       <div>
-        <Link to="/dashboard" className="btn btn-light">
-          <i className="fas fa-thumbtack" />
-          Back
+        <Link to="/dashboard" className="btn-btn-light">
+          Go Back
         </Link>
         <table className="table table-hover">
           <thead>
-            <tr>
-              <th>Line Chart from ChartJS 2</th>
-            </tr>
+            <tr />
           </thead>
           <tbody>{this.renderCookLog(this.props.cookLog)}</tbody>
         </table>

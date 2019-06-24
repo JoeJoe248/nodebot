@@ -64,7 +64,7 @@ class LineChartNormalBandComponent extends Component {
       return (
         <tr>
           <td>
-            <Sparklines height={120} width={180} data={tempValuesFake}>
+            <Sparklines height={120} width={180} data={tempValues}>
               <SparklinesLine style={{ stroke: "#2991c8", fill: "none" }} />
               <SparklinesSpots />
               <SparklinesNormalBand
